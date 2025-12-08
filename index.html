@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canal SOFAR: La Autopista Submarina del Sonido</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* COLORES */
+        :root {
+            --color-ocean-deep: #1a2980;
+            --color-ocean-mid: #2a5298;
+            --color-ocean-light: #6dd5ed;
+            --color-whale: #2c3e50;
+            --color-uvigo: #0056a6;
+        }
+        
+        /* ESTILOS GENERALES Y TIPOGRAFÍA */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(180deg, #f0f8ff 0%, #e6f3ff 100%);
+            color: #333;
+            line-height: 1.7;
+            padding-top: 76px; /* Para compensar navbar fixed */
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--color-ocean-deep);
+        }
+        
+        /* BARRA DE NAVEGACIÓN */
+        .navbar {
+            background: linear-gradient(90deg, var(--color-ocean-deep) 0%, var(--color-ocean-mid) 100%) !important;
+            box-shadow: 0 4px 12px rgba(26, 41, 128, 0.15);
+        }
+        
+        /* SECCIÓN HERO */
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-ocean-deep) 0%, #26d0ce 100%);
+            color: white;
+            padding: 5rem 0 7rem 0;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.1"><path d="M0,300 C300,150 600,450 1200,300 L1200,600 L0,600 Z" fill="white"/></svg>');
+            background-size: cover;
+        }
+        
+        .wave-animation {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"/></svg>');
+            background-size: 1200px 150px;
+            animation: wave 15s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1200px; }
+        }
+        
+        /* TARJETAS PRINCIPALES */
+        .ocean-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(26, 41, 128, 0.1);
+            border: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .ocean-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(26, 41, 128, 0.2);
+        }
+        
+        .card-header-gradient {
+            background: linear-gradient(90deg, var(--color-ocean-light) 0%, var(--color-ocean-mid) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-bottom: none;
+        }
+        
+        .card-body {
+            /* AJUSTE DE MARGEN PARA EL TEXTO DENTRO DE LOS BLOQUES */
+            padding: 2rem !important; 
+        }
+
+        /* INDICADOR DE PROFUNDIDAD */
+        .depth-indicator {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(180deg, #87CEEB 0%, #1a2980 100%);
+            border-radius: 10px;
+            position: relative;
+            margin: 2rem 0;
+            border: 2px solid var(--color-ocean-deep);
+        }
+        
+        .depth-label {
+            position: absolute;
+            left: 10px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+        
+        .sofar-layer {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-top: 3px dashed #ffeb3b;
+            border-bottom: 3px dashed #ffeb3b;
+            z-index: 1;
+        }
+        
+        .sound-wave {
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 235, 59, 0.3) 20px,
+                rgba(255, 235, 59, 0.3) 40px
+            );
+            animation: soundTravel 8s linear infinite;
+        }
+        
+        @keyframes soundTravel {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* ESTILOS PARA IMÁGENES DE CETÁCEOS */
+        .cetaceo-img-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 200px; /* Altura fija para el contenedor */
+        }
+        
+        /* Usamos object-fit para que la imagen se adapte y cubra el contenedor */
+        .cetaceo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .cetaceo-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .cetaceo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .physics-equation {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--color-ocean-deep);
+            margin: 2rem 0;
+        }
+        
+        .problem-card {
+            border-left: 5px solid #e74c3c;
+            background: #fff5f5;
+        }
+        
+        .fun-fact-card {
+            border-left: 5px solid #2ecc71;
+            background: #f0fff4;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--color-ocean-light), var(--color-ocean-deep));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--color-ocean-mid);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--color-ocean-mid);
+        }
+        
+        .ocean-bg {
+            background: linear-gradient(180deg, #e6f7ff 0%, #f0f9ff 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        /* QUIÉNES SOMOS - AJUSTE DE ESPACIO */
+        .team-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fcff 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid var(--color-uvigo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-section h2 {
+            margin-top: 0; 
+            margin-bottom: 1rem;
+        }
+        
+        .team-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,0 C155.228,0 200,44.772 200,100 C200,155.228 155.228,200 100,200 C44.772,200 0,155.228 0,100 C0,44.772 44.772,0 100,0 Z" fill="%230056a6" opacity="0.05"/></svg>');
+            background-size: contain;
+        }
+        
+        .uvigo-badge {
+            background-color: var(--color-uvigo);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .student-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 86, 166, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(0, 86, 166, 0.1);
+        }
+        
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 86, 166, 0.15);
+        }
+        
+        .student-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-ocean-light), var(--color-uvigo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .course-badge {
+            background: linear-gradient(90deg, #1a2980, #26d0ce);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* ESTILOS PARA LA SECCIÓN DE EXPERIMENTO */
+        .experiment-materials {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .interview-card {
+            border-left: 5px solid #ffc107;
+            background: #fff8e1;
+        }
+        
+        /* ICONO DE BALLENA SIMPLE (SIN SÍMBOLO DE COMPARTIR) */
+        .whale-icon-simple {
+            font-size: 3rem;
+            color: var(--color-whale);
+            animation: whaleFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes whaleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            50% { transform: translateY(5px) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0 5rem 0;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .team-section {
+                padding: 2rem 1rem;
+            }
+            
+            body {
+                padding-top: 66px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-water me-2"></i>Canal SOFAR
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#que-es">¿Qué es?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fisica">Física</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cetaceos">Cetáceos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#problemas">Problemas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#curiosidades">Curiosidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experimento">Experimento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#entrevista">Entrevista</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section" id="inicio">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4">CANAL SOFAR</h1>
+                    <h2 class="h3 mb-4">La Autopista Submarina del Sonido</h2>
+                    <p class="lead mb-4">Descubre la fascinante capa oceánica donde el sonido viaja miles de kilómetros sin perder intensidad, conectando continentes y permitiendo la comunicación de las ballenas a través de océanos.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <span class="badge bg-light text-dark p-2"><i class="bi bi-speedometer2 me-1"></i>Velocidad del sonido: ~1500 m/s</span>
+                        <span class="badge bg-light text-dark p-2"><i class="bi bi-rulers me-1"></i>Profundidad: 600-1200 m</span>
+                        <span class="badge bg-light text-dark p-2"><i class="bi bi-signpost-split me-1"></i>Distancia: hasta 25,000 km</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="whale-icon-simple">
+                        <i class="bi bi-water"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-animation"></div>
+    </section>
+    <main class="container">
+        
+        <section id="que-es" class="mb-5">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="text-center mb-5"><i class="bi bi-question-circle me-2"></i>¿Qué es el Canal SOFAR?</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="ocean-card">
+                        <div class="card-header-gradient">
+                            <h4 class="mb-0"><i class="bi bi-info-circle me-2"></i>Definición</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>El <strong>Canal SOFAR</strong> (Sound Fixing and Ranging Channel) es una capa horizontal en el océano donde la velocidad del sonido alcanza su valor mínimo, actuando como una <strong>"guía de ondas" natural</strong> que permite que el sonido viaje extraordinarias distancias con mínima pérdida de energía.</p>
+                            
+                            <div class="depth-indicator">
+                                <div class="depth-label" style="top: 0;">Superficie (0 m)</div>
+                                <div class="depth-label" style="top: 100px;">200 m</div>
+                                <div class="depth-label" style="top: 150px;">600 m</div>
+                                <div class="depth-label" style="top: 200px;">1000 m</div>
+                                <div class="depth-label" style="bottom: 0;">Fondo (4000 m+)</div>
+                                
+                                <div class="sofar-layer" style="top: 140px; height: 60px;">
+                                    <div class="sound-wave" style="top: 50%;"></div>
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <span class="badge bg-warning text-dark p-2">CANAL SOFAR<br>600-1200 m</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="position-absolute" style="top: 150px; left: 20%; z-index: 3;">
+                                    <i class="bi bi-water" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="ocean-card">
+                        <div class="card-header-gradient">
+                            <h4 class="mb-0"><i class="bi bi-gear me-2"></i>¿Cómo funciona?</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Mecanismo de Propagación:</h5>
+                            <ul>
+                                <li><strong>Refracción constante:</strong> Las ondas sonoras se refractan hacia la zona de mínima velocidad</li>
+                                <li><strong>Trampa acústica:</strong> El sonido queda "atrapado" y viaja horizontalmente</li>
+                                <li><strong>Pérdida mínima:</strong> Menor absorción y dispersión que en otras profundidades</li>
+                                <li><strong>Distancia extrema:</strong> Un sonido en el canal puede dar la vuelta al mundo</li>
+                            </ul>
+                            
+                            <div class="ocean-bg mt-3">
+                                <h6><i class="bi bi-lightbulb me-2"></i>Aplicaciones Prácticas:</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="small">
+                                            <li>Detección de submarinos</li>
+                                            <li>Localización de terremotos submarinos</li>
+                                            <li>Comunicación con boyas científicas</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="small">
+                                            <li>Monitoreo de pruebas nucleares</li>
+                                            <li>Sistema SOSUS (Guerra Fría)</li>
+                                            <li>Investigación oceanográfica</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="fisica" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-calculator me-2"></i>La Física detrás del Canal</h2>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="physics-equation">
+                        <h4>Ecuación Fundamental</h4>
+                        <div class="text-center my-4 fs-3">
+                            $$c = \sqrt{\frac{K}{\rho}}$$
+                        </div>
+                        <p><strong>Donde:</strong><br>
+                        \(c\) = velocidad del sonido en el agua (m/s)<br>
+                        \(K\) = módulo de compresibilidad del agua<br>
+                        \(\rho\) = densidad del agua</p>
+                        
+                        <h5 class="mt-4">Variación con la profundidad:</h5>
+                        <div class="text-center my-3">
+                            $$c(z) = 1449.2 + 4.6T - 0.055T^2 + 0.00029T^3 + (1.34 - 0.01T)(S - 35) + 0.016z$$
+                        </div>
+                        <p>Donde \(T\) es temperatura (°C), \(S\) es salinidad (ppt), y \(z\) es profundidad (m).</p>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="ocean-card h-100">
+                                <div class="card-body">
+                                    <h5><i class="bi bi-thermometer me-2"></i>Efecto de la Temperatura</h5>
+                                    <p>La velocidad del sonido <strong>aumenta con la temperatura</strong>. En superficie, el agua es más cálida, pero...</p>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar bg-info" style="width: 70%">Superficie: +velocidad</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" style="width: 30%">Profundo: -velocidad</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="ocean-card h-100">
+                                <div class="card-body">
+                                    <h5><i class="bi bi-droplet me-2"></i>Efecto de la Presión</h5>
+                                    <p>La velocidad del sonido <strong>aumenta con la presión</strong>. A mayor profundidad, mayor presión hidrostática.</p>
+                                    <div class="progress mb-2">
+                                        <div class="progress-bar bg-secondary" style="width: 30%">Superficie: -presión</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" style="width: 70%">Profundo: +presión</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="ocean-card h-100">
+                        <div class="card-header-gradient">
+                            <h4 class="mb-0"><i class="bi bi-graph-up me-2"></i>Perfil de Velocidad</h4>
+                        </div>
+                        <div class="card-body">
+                            <h6>Formación del mínimo de velocidad:</h6>
+                            <ol class="mt-3">
+                                <li><strong>Superficie:</strong> Alta temperatura → Aumenta velocidad</li>
+                                <li><strong>Termoclina:</strong> Disminución rápida de temperatura → Disminuye velocidad</li>
+                                <li><strong>Canal SOFAR:</strong> Mínimo de velocidad (600-1200 m)</li>
+                                <li><strong>Profundidad:</strong> Aumento de presión → Aumenta velocidad nuevamente</li>
+                            </ol>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <strong>Punto crucial:</strong> La interacción entre temperatura (↓ velocidad) y presión (↑ velocidad) crea el mínimo del canal SOFAR.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="cetaceos" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-water me-2"></i>Comunicación de los Cetáceos</h2>
+            
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <div class="ocean-card h-100">
+                        <div class="card-body text-center">
+                            <div class="whale-icon-simple mb-3">
+                                <i class="bi bi-soundwave"></i>
+                            </div>
+                            <h4 class="my-3">La Autopista de las Ballenas</h4>
+                            <p>Muchas especies de ballenas y cetáceos han evolucionado para usar el canal SOFAR como su <strong>sistema de comunicación de largo alcance</strong>.</p>
+                            
+                            <div class="row mt-4 g-3">
+                                <div class="col-6">
+                                    <div class="cetaceo-img-container">
+                                        <img src="https://images.unsplash.com/photo-1627916960920-d3362145e14d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwxNXx8Ymx1ZSUyMHdoYWxlfGVufDB8fHx8MTcwMTkxNjMyNHww&ixlib=rb-4.0.3&q=80&w=400" alt="Ballena Azul nadando en el océano" class="cetaceo-img">
+                                        <div class="cetaceo-label">Ballena Azul</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="cetaceo-img-container">
+                                        <img src="https://images.unsplash.com/photo-1634289896350-f845d0c07d32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwzfHxzaXJtJTIwd2hhbGVfQ2FjaGFsb3RlfGVufDB8fHx8MTcwMTkxNjMyNHww&ixlib=rb-4.0.3&q=80&w=400" alt="Cachalote en el canal SOFAR" class="cetaceo-img">
+                                        <div class="cetaceo-label">Cachalote</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ocean-bg mt-3">
+                                <h6>Especies que utilizan el canal SOFAR:</h6>
+                                <div class="row text-start">
+                                    <div class="col-6">
+                                        <ul>
+                                            <li>Ballena azul</li>
+                                            <li>Ballena de aleta</li>
+                                            <li>Cachalote</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li>Ballena jorobada</li>
+                                            <li>Ballena franca</li>
+                                            <li>Ballena gris</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 mb-4">
+                    <div class="ocean-card h-100">
+                        <div class="card-header-gradient">
+                            <h4 class="mb-0"><i class="bi bi-chat-dots me-2"></i>Características de la Comunicación</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6><i class="bi bi-volume-up me-2"></i>Características del sonido:</h6>
+                                    <ul>
+                                        <li><strong>Frecuencia:</strong> 10-40 Hz (infrasonido)</li>
+                                        <li><strong>Intensidad:</strong> Hasta 188 dB</li>
+                                        <li><strong>Duración:</strong> 10-30 segundos</li>
+                                        <li><strong>Alcance:</strong> 100-1000 km</li>
+                                    </ul>
+                                    
+                                    <div class="cetaceo-img-container mt-3" style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1549419353-8409192534f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwzfHxodW1wYmFjayUyMHdoYWxlfGVufDB8fHx8MTcwMTkxNjQ5MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Ballena jorobada cantando" class="cetaceo-img">
+                                        <div class="cetaceo-label">Ballena Jorobada</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6><i class="bi bi-bullseye me-2"></i>Propósitos:</h6>
+                                    <ul>
+                                        <li>Comunicación social</li>
+                                        <li>Navegación</li>
+                                        <li>Localización de presas</li>
+                                        <li>Encontrar pareja</li>
+                                        <li>Coordinación de grupo</li>
+                                    </ul>
+                                    
+                                    <div class="cetaceo-img-container mt-3" style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1617066035071-f9d9494371f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHw1fHxkb2xwaGlufGVufDB8fHx8MTcwMTkxNjQ5MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Grupo de delfines" class="cetaceo-img">
+                                        <div class="cetaceo-label">Delfines (Ecosistemas)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-warning mt-3">
+                                <i class="bi bi-megaphone me-2"></i>
+                                <strong>Dato sorprendente:</strong> Una ballena azul en el Atlántico Norte puede comunicarse con otra en el Atlántico Sur usando el canal SOFAR.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="ocean-card">
+                        <div class="card-body">
+                            <h5><i class="bi bi-diagram-3 me-2"></i>Mecanismo de Propagación de los Cantos</h5>
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <ol>
+                                        <li>La ballena emite sonidos de baja frecuencia en el canal SOFAR</li>
+                                        <li>Las ondas sonoras quedan atrapadas en la guía de ondas</li>
+                                        <li>El sonido viaja horizontalmente con mínima pérdida</li>
+                                        <li>Otras ballenas a cientos de km pueden detectar la señal</li>
+                                        <li>El sonido puede dar múltiples vueltas alrededor de la Tierra</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="whale-icon-simple">
+                                        <i class="bi bi-soundwave"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="problemas" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-exclamation-triangle me-2"></i>Problemas y Amenazas Actuales</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="ocean-card problem-card h-100">
+                        <div class="card-body">
+                            <h5 class="text-danger"><i class="bi bi-volume-up me-2"></i>Contaminación Acústica</h5>
+                            <p>El tráfico marítimo, sonar militar, exploración sísmica y construcciones offshore generan ruido que interfiere con el canal SOFAR.</p>
+                            <div class="small text-muted">
+                                <strong>Impacto:</strong> Los cetáceos no pueden comunicarse efectivamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="ocean-card problem-card h-100">
+                        <div class="card-body">
+                            <h5 class="text-danger"><i class="bi bi-thermometer-sun me-2"></i>Cambio Climático</h5>
+                            <p>El calentamiento global altera los perfiles de temperatura del océano, cambiando la profundidad y eficiencia del canal SOFAR.</p>
+                            <div class="small text-muted">
+                                <strong>Impacto:</strong> Migración forzada de especies.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="ocean-card problem-card h-100">
+                        <div class="card-body">
+                            <h5 class="text-danger"><i class="bi bi-ship me-2"></i>Actividad Militar</h5>
+                            <p>El uso del sonar militar de baja frecuencia (SURTASS) genera pulsos que pueden dañar el sistema auditivo de los cetáceos.</p>
+                            <div class="small text-muted">
+                                <strong>Impacto:</strong> Varamientos masivos documentados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="ocean-card problem-card h-100">
+                        <div class="card-body">
+                            <h5 class="text-danger"><i class="bi bi-search me-2"></i>Exploración Sísmica</h5>
+                            <p>Las explosiones controladas para buscar petróleo y gas generan ondas de choque que viajan por el canal SOFAR.</p>
+                            <div class="small text-muted">
+                                <strong>Impacto:</strong> Estrés y desplazamiento de fauna marina.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="ocean-card">
+                        <div class="card-body">
+                            <h5><i class="bi bi-clipboard-data me-2"></i>Consecuencias Documentadas</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Reducción del alcance de comunicación de ballenas en un 90%</li>
+                                        <li>Incremento en varamientos relacionados con ejercicios navales</li>
+                                        <li>Cambios en patrones migratorios</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Estrés crónico en poblaciones de cetáceos</li>
+                                        <li>Interferencia en actividades de alimentación y reproducción</li>
+                                        <li>Posible colapso de poblaciones vulnerables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="experimento" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-lightbulb me-2"></i>Experimento Casero: Simulando el Canal SOFAR</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="ocean-card h-100">
+                        <div class="card-body">
+                            <h4 class="text-center mb-4"><i class="bi bi-tools me-2"></i>Materiales y Montaje</h4>
+                            
+                            <div class="experiment-materials">
+                                <h6>Materiales Necesarios:</h6>
+                                <ul>
+                                    <li>Una **caja de plástico grande** (tipo pecera o contenedor transparente)</li>
+                                    <li>**Agua tibia** (para la capa superficial)</li>
+                                    <li>**Hielo** (para enfriar el fondo/fondo simulado)</li>
+                                    <li>**Sal** (opcional, para variar densidades si se requiere un efecto más completo)</li>
+                                    <li>Un **celular o altavoz pequeño** (para reproducir un sonido constante)</li>
+                                    <li>Otro **celular o micrófono** (para captar el sonido)</li>
+                                </ul>
+                            </div>
+                            
+                            <h5 class="mt-4"><i class="bi bi-play-fill me-2"></i>Procedimiento:</h5>
+                            <ol>
+                                <li>**Crea el Gradiente de Temperatura:** Llena la caja de plástico con agua tibia. Coloca cubos de hielo en el fondo de un lado (o en un recipiente sumergido) para enfriar esa zona sin mezclar completamente el agua. Esto simula la **termoclina** y crea una capa de agua más fría (y más lenta para el sonido) en la parte inferior.</li>
+                                <li>**Posiciona la Fuente:** Coloca el celular/altavoz reproduciendo un sonido constante **cerca de la capa fría** (el lado con hielo). Esto simula la ubicación de la mínima velocidad del sonido (eje del canal SOFAR).</li>
+                                <li>**Mide y Observa:** Usa el segundo celular/micrófono para grabar o escuchar el sonido:
+                                    <ul>
+                                        <li>**A) Sobre la capa fría (superficie):** El sonido debe escucharse más débil.</li>
+                                        <li>**B) En el eje frío (cerca de la fuente):** El sonido debe escucharse más claro y fuerte, demostrando cómo se **canaliza** y refracta de nuevo hacia la zona de mínima velocidad.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="ocean-card h-100">
+                        <div class="card-body">
+                            <h4 class="text-center mb-4"><i class="bi bi-film me-2"></i>Video del Experimento (Ejemplo)</h4>
+                            
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_EXPERIMENTO" title="Simulación del Canal SOFAR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            <h5 class="mt-4"><i class="bi bi-chat-left-dots me-2"></i>Explicación Física:</h5>
+                            <p>Este experimento recrea un perfil de velocidad del sonido donde la capa fría representa la zona de **velocidad mínima**.</p>
+                            <ul>
+                                <li>En el océano, si una onda se desvía hacia una zona más rápida (más caliente o más profunda), la **refracción** la empuja de vuelta hacia la zona más lenta.</li>
+                                <li>En nuestro experimento, las ondas sonoras generadas cerca de la capa fría son **"atrapadas"** por la refracción en la zona de menor velocidad, permitiendo que la energía acústica se propague a mayores distancias dentro de esa capa, tal como ocurre en el Canal SOFAR real.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="entrevista" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-mic me-2"></i>Entrevista con el Experto</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="ocean-card interview-card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 text-center mb-3 mb-md-0">
+                                    <div class="student-avatar" style="margin: 0;">
+                                        EX
+                                    </div>
+                                    <h5 class="mt-3">Dr. [El Nombre del Tipo]</h5>
+                                    <p class="small text-muted">Oceanógrafo Acústico</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Visión sobre el Canal SOFAR</h4>
+                                    
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0">"El Canal SOFAR no es solo un fenómeno físico; es la **autopista natural** que permitió la evolución de la comunicación a larga distancia en los cetáceos, la cual ha funcionado sin fallos durante millones de años. Hoy, su silenciosa eficiencia está amenazada por la contaminación acústica humana. Estudiar el canal es crucial para proteger a estas especies, ya que afecta directamente su capacidad para encontrar alimento y pareja a escala oceánica."</p>
+                                        <footer class="blockquote-footer mt-2">Dr. [El Nombre del Tipo], <cite title="Cargo">Experto en Bioacústica Marina</cite></footer>
+                                    </blockquote>
+                                    
+                                    <p class="mt-3">Añade aquí un resumen de la entrevista o un fragmento clave sobre la importancia, amenazas o investigación actual relacionada con el canal SOFAR.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="curiosidades" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-stars me-2"></i>Curiosidades y Descubrimiento</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="ocean-card fun-fact-card h-100">
+                        <div class="card-body">
+                            <h4><i class="bi bi-clock-history me-2"></i>Historia del Descubrimiento</h4>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h6>1500</h6>
+                                    <p><strong>Leonardo da Vinci (primera observación):</strong> Notó que los barcos podían escuchar otros barcos a grandes distancias colocando un tubo en el agua.</p>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <h6>1937</h6>
+                                    <p><strong>Reginald Fessenden:</strong> Observó que el sonido podía viajar grandes distancias bajo el agua, pero no comprendió el mecanismo.</p>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <h6>1944</h6>
+                                    <p><strong>Maurice Ewing y J. Lamar Worzel:</strong> Descubren científicamente el canal SOFAR durante investigaciones oceanográficas en la Universidad de Columbia.</p>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <h6>1950s</h6>
+                                    <p><strong>Sistema SOSUS:</strong> EE.UU. instala una red de hidrófonos en el canal SOFAR para detectar submarinos soviéticos durante la Guerra Fría.</p>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <h6>1970s</h6>
+                                    <p><strong>Roger Payne:</strong> Descubre que las ballenas usan el canal SOFAR para comunicarse a larga distancia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="ocean-card fun-fact-card h-100">
+                                <div class="card-body">
+                                    <h4><i class="bi bi-lightbulb me-2"></i>Datos Curiosos</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-record-circle me-2"></i>Récord de Distancia</h6>
+                                                <p class="small">Un sonido generado en el canal SOFAR puede ser detectado a más de <strong>25,000 km</strong> de distancia.</p>
+                                            </div>
+                                            
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-globe-americas me-2"></i>La Voz del Océano</h6>
+                                                <p class="small">El "Bloop" (1997) fue un sonido ultrapotente detectado en el canal SOFAR que recorrió todo el Pacífico.</p>
+                                            </div>
+                                            
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-clock me-2"></i>Velocidad Constante</h6>
+                                                <p class="small">El sonido viaja aproximadamente 4.5 veces más rápido en el agua que en el aire.</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-mic me-2"></i>El Canto más Largo</h6>
+                                                <p class="small">Las ballenas jorobadas tienen cantos que pueden durar hasta 30 minutos y repetirse por horas.</p>
+                                            </div>
+                                            
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-map me-2"></i>Navegación Natural</h6>
+                                                <p class="small">Algunos cetáceos usan el canal SOFAR como sistema de navegación para migraciones transoceánicas.</p>
+                                            </div>
+                                            
+                                            <div class="fun-fact-item mb-3">
+                                                <h6><i class="bi bi-volume-mute me-2"></i>Silencio Forzado</h6>
+                                                <p class="small">El ruido humano ha reducido el alcance de comunicación de las ballenas en un 90% en algunas áreas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="quienes-somos" class="mb-5">
+            <div class="team-section">
+                <div class="text-center mb-5">
+                    <span class="uvigo-badge">
+                        <i class="bi bi-building me-2"></i>Universidad de Vigo
+                    </span>
+                    <h2><i class="bi bi-people-fill me-2"></i>Quiénes Somos</h2>
+                    <p class="lead" style="margin-bottom: 0;">Un proyecto académico de la carrera de Ciencias del Mar.</p> 
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="ocean-card mb-4">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h4 class="mb-3">Proyecto de Física 2</h4>
+                                        <p>Este sitio web es el resultado de nuestro trabajo de investigación para la asignatura <strong>Física 2</strong> de la carrera de <strong>Ciencias del Mar</strong> en la Universidad de Vigo.</p>
+                                        
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <h6><i class="bi bi-book me-2"></i>Objetivos del Proyecto:</h6>
+                                                <ul>
+                                                    <li>Comprender la física de la propagación del sonido en el océano</li>
+                                                    <li>Investigar el impacto del canal SOFAR en la vida marina</li>
+                                                    <li>Analizar las amenazas actuales a los ecosistemas acústicos</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6><i class="bi bi-gear me-2"></i>Metodología:</h6>
+                                                <ul>
+                                                    <li>Revisión bibliográfica científica</li>
+                                                    <li>Análisis de datos oceanográficos</li>
+                                                    <li>Desarrollo de modelo de propagación</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="course-badge">
+                                            <i class="bi bi-mortarboard me-2"></i>
+                                            Física 2 - Ciencias del Mar
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="student-card">
+                                    <div class="student-avatar">
+                                        YB
+                                    </div>
+                                    <h4 class="text-center">Yasmin Battich Magalhaes</h4>
+                                    <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
+                                    
+                                    <div class="mt-3">
+                                        <h6><i class="bi bi-mortarboard me-2"></i>Áreas de Interés:</h6>
+                                        <ul>
+                                            <li>Bioacústica marina</li>
+                                            <li>Conservación de cetáceos</li>
+                                            <li>Oceanografía física</li>
+                                            <li>Ecosistemas marinos</li>
+                                        </ul>
+                                        
+                                        <h6 class="mt-3"><i class="bi bi-award me-2"></i>Contribución al Proyecto:</h6>
+                                        <p>Investigación sobre la comunicación de cetáceos y análisis del impacto acústico en ecosistemas marinos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="student-card">
+                                    <div class="student-avatar">
+                                        RC
+                                    </div>
+                                    <h4 class="text-center">Roque Chouciño</h4>
+                                    <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
+                                    
+                                    <div class="mt-3">
+                                        <h6><i class="bi bi-mortarboard me-2"></i>Áreas de Interés:</h6>
+                                        <ul>
+                                            <li>Física oceanográfica</li>
+                                            <li>Propagación de ondas</li>
+                                            <li>Instrumentación marina</li>
+                                            <li>Modelado acústico</li>
+                                        </ul>
+                                        
+                                        <h6 class="mt-3"><i class="bi bi-award me-2"></i>Contribución al Proyecto:</h6>
+                                        <p>Análisis de la física del canal SOFAR y desarrollo del modelo de propagación del sonido.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="ocean-bg text-center">
+                                    <h5><i class="bi bi-info-circle me-2"></i>Acerca de la Universidad de Vigo</h5>
+                                    <p>La <strong>Universidad de Vigo</strong> es una institución pública gallega que destaca en la investigación marina y oceanográfica. La facultad de Ciencias del Mar ofrece una formación integral en el estudio de los océanos, combinando aspectos biológicos, físicos y químicos.</p>
+                                    <p class="mb-0">
+                                        <i class="bi bi-calendar me-1"></i>Curso académico: 2023-2024 |
+                                        <i class="bi bi-geo-alt ms-3 me-1"></i>Campus de Vigo, Galicia
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="bi bi-atom me-2"></i>Canal SOFAR</h5>
+                    <p>Proyecto académico de Física 2 sobre la propagación del sonido en el océano y su importancia para los ecosistemas marinos.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-info me-2">Física Oceanográfica</span>
+                        <span class="badge bg-success me-2">Bioacústica</span>
+                        <span class="badge bg-warning">Conservación Marina</span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Inicio</a></li>
+                        <li><a href="#que-es" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>¿Qué es el Canal SOFAR?</a></li>
+                        <li><a href="#cetaceos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Comunicación de Cetáceos</a></li>
+                        <li><a href="#experimento" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Experimento Casero</a></li>
+                        <li><a href="#entrevista" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Entrevista</a></li>
+                        <li><a href="#quienes-somos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Quiénes Somos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5>Contacto Académico</h5>
+                    <p>
+                        <i class="bi bi-building me-2"></i><strong>Universidad de Vigo</strong><br>
+                        <i class="bi bi-mortarboard me-2"></i>Facultad de Ciencias del Mar<br>
+                        <i class="bi bi-geo-alt me-2"></i>Campus de Vigo, Galicia<br>
+                        <i class="bi bi-envelope me-2"></i>[correo académico]
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="bg-light my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        &copy; 2024 Proyecto Física 2 - Canal SOFAR<br>
+                        Yasmin Battich Magalhaes & Roque Chouciño
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        <i class="bi bi-code-slash me-1"></i> Desarrollado con HTML5, CSS3, Bootstrap & MathJax<br>
+                        <i class="bi bi-github me-1"></i> Código disponible en GitHub
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Configuración de MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if(navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Resaltar sección activa en navegación
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Actualizar año en el footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('footer .row:last-child .col-md-6:first-child p');
+            if(yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2023', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
