@@ -307,6 +307,22 @@
             box-shadow: 0 10px 25px rgba(0, 86, 166, 0.15);
         }
         
+        /* Modificación para incluir la imagen del experto */
+        .expert-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            /* Usar la imagen adjunta */
+            background-image: url('WhatsApp Image 2025-12-09 at 18.20.09.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            background-color: var(--color-ocean-mid);
+            display: block; /* Asegura que la imagen ocupe el espacio */
+            margin: 0 auto 1rem;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        /* Eliminar el estilo original del 'student-avatar' para no afectar al experto */
         .student-avatar {
             width: 100px;
             height: 100px;
@@ -378,6 +394,23 @@
             75% { transform: translateY(-5px) rotate(5deg); }
         }
         
+        /* ESTILOS PARA MAPA CONCEPTUAL */
+        .mapa-conceptual-container {
+            border: 2px solid var(--color-ocean-mid);
+            border-radius: 15px;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .mapa-conceptual-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 3rem 0 5rem 0;
@@ -416,7 +449,7 @@
                     <li class="nav-item"><a class="nav-link" href="#curiosidades">Curiosidades</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experimento">Experimento</a></li>
                     <li class="nav-item"><a class="nav-link" href="#entrevista">Entrevista</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa Conceptual</a></li> <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
                 </ul>
             </div>
         </div>
@@ -635,7 +668,7 @@
                                     <div class="col-6">
                                         <ul>
                                             <li>Ballena azul</li>
-                                            <li>Ballena de aleta</li>
+                                            <li>Ballena de aleta (Rorcual Común)</li>
                                             <li>Cachalote</li>
                                         </ul>
                                     </div>
@@ -872,24 +905,32 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-md-3 text-center mb-3 mb-md-0">
-                                    <div class="student-avatar" style="margin: 0;">
-                                        EX
-                                    </div>
-                                    <h5 class="mt-3">Dr. [El Nombre del Tipo]</h5>
-                                    <p class="small text-muted">Oceanógrafo Acústico</p>
+                                    <div class="expert-avatar" role="img" aria-label="Foto del Doctor Camilo Saavedra"></div>
+                                    <h5 class="mt-3">Dr. Camilo Saavedra</h5>
+                                    <p class="small text-muted">Investigador IEO - Oceanógrafo</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Visión sobre el Canal SOFAR</h4>
+                                    <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Especies que usan el canal SOFAR en nuestro territorio</h4>
                                     
                                     <blockquote class="blockquote">
-                                        <p class="mb-0">" "</p>
-                                        <footer class="blockquote-footer mt-2">Dr. [El Nombre del Tipo], <cite title="Cargo">Experto en .....</cite></footer>
+                                        <p class="mb-0">"Vamos a hablar sobre las principales especies que utilizan el canal sofar en nuestro territorio. Las poblaciones del Mediterráneo son escasas y entran a través del estrecho de Gibraltar, llegando en primavera para mantenerse durante el verano y migrar en otoño, hemos logrado biopsiar individuos que realizan este recorrido desde las costas catalanas hasta llegar a las gallegas, para luego dirigirse al norte. En cuanto a las del Atlántico, su comportamiento depende de la especie, ya que las ballenas jorobadas descienden desde zonas subárticas y se mantienen en las costas de la península para que crezcan sus crías antes de volver a migrar al norte, esta especie posee un canto de una frecuencia y una intensidad que les permite comunicarse a unas distancias relativamente cortas, mientras que el rorcual común emite unos cantos de mas baja frecuencia y de mayor intensidad lo cual hace que aproveche las fisicas del canal sofar siendo la especie que se tiene más registro del aprovechamiento del canal SOFAR, esterealiza una migración mucho más directa desde el Ártico a las costas españolas. Otro cetaceo que aprovecha el canal sofar para comunicarse es el cachalote, que detiene su migración en las islas Canarias antes de continuarla hacia el norte, lo cual conlleva una problemática latente debido al aumento del tráfico marítimo, que provoca que sean mutilados por los barcos a causa de sus hábitos de descansar en grupo cerca de la superficie en sentido vertical. Las especies que tenemos en nuestras costas han sido diezmadas durante décadas por su caza y muchos años de esfuerzos para su conservación están dando sus frutos ya que las poblaciones se están recuperando, dejandonos así un panorama esperanzador para poder seguir investigando a estos animales."</p>
+                                        <footer class="blockquote-footer mt-2">Dr. Camilo Saavedra, <cite title="Cargo">Investigador en el Centro Oceanográfico de Vigo del Instituto Español de Oceanografía.</cite></footer>
                                     </blockquote>
-                                    
-                                    <p class="mt-3"> resumen de la entrevista.</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="mapa-conceptual" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-diagram-2 me-2"></i>Mapa Conceptual</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mapa-conceptual-container">
+                        <img src="image_08c518.png" alt="Mapa Conceptual sobre el Canal SOFAR y sus implicaciones en cetáceos y aplicaciones." class="mapa-conceptual-img">
                     </div>
                 </div>
             </div>
@@ -1117,6 +1158,7 @@
                         <li><a href="#cetaceos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Comunicación de Cetáceos</a></li>
                         <li><a href="#experimento" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Experimento Casero</a></li>
                         <li><a href="#entrevista" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Entrevista</a></li>
+                        <li><a href="#mapa-conceptual" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Mapa Conceptual</a></li>
                         <li><a href="#quienes-somos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Quiénes Somos</a></li>
                     </ul>
                 </div>
