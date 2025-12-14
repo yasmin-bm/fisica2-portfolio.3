@@ -322,17 +322,15 @@
             border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        /* Eliminar el estilo original del 'student-avatar' para no afectar al experto */
+        /* Estilo para student-avatar con imagen de fondo */
         .student-avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-ocean-light), var(--color-uvigo));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
+            background-color: var(--color-ocean-light);
+            background-size: cover;
+            background-position: center;
+            display: block;
             margin: 0 auto 1rem;
             border: 3px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -650,13 +648,13 @@
                             <div class="row mt-4 g-3">
                                 <div class="col-6">
                                     <div class="cetaceo-img-container">
-                                        <img src="https://images.unsplash.com/photo-1627916960920-d3362145e14d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwxNXx8Ymx1ZSUyMHdoYWxlfGVufDB8fHx8MTcwMTkxNjMyNHww&ixlib=rb-4.0.3&q=80&w=400" alt="Ballena Azul nadando en el océano" class="cetaceo-img">
+                                        <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/gex0x01aq_shutterstock_764499823.jpg?raw=true" alt="Ballena Azul nadando en el océano" class="cetaceo-img">
                                         <div class="cetaceo-label">Ballena Azul</div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="cetaceo-img-container">
-                                        <img src="https://images.unsplash.com/photo-1634289896350-f845d0c07d32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwzfHxzaXJtJTIwd2hhbGVfQ2FjaGFsb3RlfGVufDB8fHx8MTcwMTkxNjMyNHww&ixlib=rb-4.0.3&q=80&w=400" alt="Cachalote en el canal SOFAR" class="cetaceo-img">
+                                        <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/images.jpg?raw=true" alt="Cachalote en el canal SOFAR" class="cetaceo-img">
                                         <div class="cetaceo-label">Cachalote</div>
                                     </div>
                                 </div>
@@ -700,11 +698,6 @@
                                         <li><strong>Duración:</strong> 10-30 segundos</li>
                                         <li><strong>Alcance:</strong> 100-1000 km</li>
                                     </ul>
-                                    
-                                    <div class="cetaceo-img-container mt-3" style="height: 150px;">
-                                        <img src="https://images.unsplash.com/photo-1549419353-8409192534f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwzfHxodW1wYmFjayUyMHdoYWxlfGVufDB8fHx8MTcwMTkxNjQ5MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Ballena jorobada cantando" class="cetaceo-img">
-                                        <div class="cetaceo-label">Ballena Jorobada</div>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <h6><i class="bi bi-bullseye me-2"></i>Propósitos:</h6>
@@ -715,10 +708,14 @@
                                         <li>Encontrar pareja</li>
                                         <li>Coordinación de grupo</li>
                                     </ul>
-                                    
-                                    <div class="cetaceo-img-container mt-3" style="height: 150px;">
-                                        <img src="https://images.unsplash.com/photo-1617066035071-f9d9494371f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHw1fHxkb2xwaGlufGVufDB8fHx8MTcwMTkxNjQ5MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Grupo de delfines" class="cetaceo-img">
-                                        <div class="cetaceo-label">Delfines (Ecosistemas)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="cetaceo-img-container" style="height: 350px;">
+                                        <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/images%20(1).jpg?raw=true" alt="Ballena jorobada cantando" class="cetaceo-img">
+                                        <div class="cetaceo-label">Ballena Jorobada</div>
                                     </div>
                                 </div>
                             </div>
@@ -1075,8 +1072,7 @@
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="student-card">
-                                    <div class="student-avatar">
-                                        YB
+                                    <div class="student-avatar" style="background-image: url('https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/Imagem%20do%20WhatsApp%20de%202025-04-26%20%C3%A0(s)%2001.58.25_4effbcfa.jpg?raw=true');">
                                     </div>
                                     <h4 class="text-center">Yasmin Battich Magalhaes</h4>
                                     <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
@@ -1098,8 +1094,7 @@
                             
                             <div class="col-md-6">
                                 <div class="student-card">
-                                    <div class="student-avatar">
-                                        RC
+                                    <div class="student-avatar" style="background-image: url('https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/WhatsApp%20Image%202025-12-13%20at%2014.05.33.jpeg?raw=true');">
                                     </div>
                                     <h4 class="text-center">Roque Chouciño</h4>
                                     <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
