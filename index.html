@@ -345,6 +345,16 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
+        /* ESTILOS PARA LAS IMÁGENES EN EL PROYECTO DE FÍSICA 2 */
+        .project-student-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-ocean-mid);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
         .course-badge {
             background: linear-gradient(90deg, #1a2980, #26d0ce);
             color: white;
@@ -401,11 +411,11 @@
             75% { transform: translateY(-5px) rotate(5deg); }
         }
         
-        /* ESTILOS PARA MAPA CONCEPTUAL */
+        /* ESTILOS PARA MAPA CONCEPTUAL - AGREGADO TAMAÑO AUMENTADO */
         .mapa-conceptual-container {
             border: 2px solid var(--color-ocean-mid);
             border-radius: 15px;
-            padding: 1rem;
+            padding: 2rem; /* Aumentado el padding */
             background: white;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
@@ -413,9 +423,42 @@
         .mapa-conceptual-img {
             max-width: 100%;
             height: auto;
+            max-height: 600px; /* Aumentada la altura máxima */
             border-radius: 10px;
             display: block;
             margin: 0 auto;
+        }
+        
+        /* ESTILOS PARA BIBLIOGRAFÍA */
+        .bibliografia-card {
+            border-left: 5px solid var(--color-uvigo);
+            background: #f0f8ff;
+        }
+        
+        .bibliografia-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        /* ESTILOS PARA CONCLUSIÓN */
+        .conclusion-section {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-left: 8px solid var(--color-ocean-deep);
+        }
+        
+        .conclusion-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .conclusion-highlight {
+            font-weight: bold;
+            color: var(--color-ocean-deep);
         }
 
         @media (max-width: 768px) {
@@ -429,6 +472,14 @@
             
             .team-section {
                 padding: 2rem 1rem;
+            }
+            
+            .conclusion-section {
+                padding: 2rem 1rem;
+            }
+            
+            .mapa-conceptual-container {
+                padding: 1rem;
             }
             
             body {
@@ -457,6 +508,8 @@
                     <li class="nav-item"><a class="nav-link" href="#experimento">Experimento</a></li>
                     <li class="nav-item"><a class="nav-link" href="#entrevista">Entrevista</a></li>
                     <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa Conceptual</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bibliografia">Bibliografía</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
                 </ul>
             </div>
@@ -935,9 +988,110 @@
             <h2 class="text-center mb-5"><i class="bi bi-diagram-2 me-2"></i>Mapa Conceptual</h2>
             
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="mapa-conceptual-container">
                         <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/1842c579-a35b-4bb3-88d2-64df647a0060.png?raw=true" alt="Mapa Conceptual sobre el Canal SOFAR y sus implicaciones en cetáceos y aplicaciones." class="mapa-conceptual-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="conclusion" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-pencil me-2"></i>Conclusión</h2>
+            
+            <div class="conclusion-section">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="conclusion-text">
+                            <p>La realización de este proyecto nos ha permitido trascender la visión teórica de la física en el medio marino. Hemos aprendido que las ecuaciones de onda y los perfiles de velocidad del sonido no son meras abstracciones matemáticas, sino las reglas fundamentales que dictan la supervivencia y comunicación de los grandes cetáceos.</p>
+                            
+                            <p>A través de la simulación experimental del Canal SOFAR, logramos visualizar el concepto de <span class="conclusion-highlight">"guía de ondas"</span>, comprendiendo físicamente cómo la interacción entre la temperatura y la presión crea una <span class="conclusion-highlight">"autopista" acústica</span> eficiente. Este proceso nos ha demostrado la importancia de modelar fenómenos físicos para entender dinámicas complejas del océano.</p>
+                            
+                            <p>Finalmente, investigar la contaminación acústica nos ha dotado de una perspectiva crítica sobre nuestra responsabilidad como futuros oceanógrafos. Hemos entendido que proteger la biodiversidad marina no solo requiere conocimientos biológicos, sino una <span class="conclusion-highlight">comprensión profunda de la física del medio</span> para mitigar el impacto antropogénico en canales de comunicación vitales como el SOFAR.</p>
+                            
+                            <div class="text-center mt-4">
+                                <div class="whale-icon-simple">
+                                    <i class="bi bi-water"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="bibliografia" class="mb-5">
+            <h2 class="text-center mb-5"><i class="bi bi-book me-2"></i>Bibliografía y Fuentes</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="ocean-card bibliografia-card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Fuentes Consultadas</h4>
+                            
+                            <div class="bibliografia-item">
+                                <h6>1. Instituto Español de Oceanografía (IEO) - Centro Oceanográfico de Vigo</h6>
+                                <p class="mb-1">Entrevista con el Dr. Camilo Saavedra sobre especies que utilizan el canal SOFAR en el territorio español.</p>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>2. NOAA - National Oceanic and Atmospheric Administration</h6>
+                                <p class="mb-1"><strong>Ocean Sound and the SOFAR Channel</strong><br>
+                                Información sobre la física del canal SOFAR y su descubrimiento.</p>
+                                <a href="https://oceanexplorer.noaa.gov/edu/learning/player/lesson10/l10la1.html" target="_blank" class="small">https://oceanexplorer.noaa.gov/edu/learning/player/lesson10/l10la1.html</a>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>3. Woods Hole Oceanographic Institution</h6>
+                                <p class="mb-1"><strong>The SOFAR Channel: Nature's Deep-Sea Sound Channel</strong><br>
+                                Investigación sobre la propagación del sonido en el canal SOFAR y su uso por cetáceos.</p>
+                                <a href="https://www.whoi.edu/know-your-ocean/ocean-topics/ocean-sound/sofar-channel/" target="_blank" class="small">https://www.whoi.edu/know-your-ocean/ocean-topics/ocean-sound/sofar-channel/</a>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>4. Nature - Scientific Reports</h6>
+                                <p class="mb-1"><strong>Blue whale vocalizations and the SOFAR channel</strong><br>
+                                Estudio sobre la comunicación de ballenas azules utilizando el canal SOFAR.</p>
+                                <a href="https://www.nature.com/articles/s41598-019-44016-8" target="_blank" class="small">https://www.nature.com/articles/s41598-019-44016-8</a>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>5. Marine Mammal Science</h6>
+                                <p class="mb-1"><strong>Anthropogenic noise and its impact on whale communication</strong><br>
+                                Investigación sobre los efectos de la contaminación acústica en cetáceos.</p>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>6. Universidad de Columbia - Lamont-Doherty Earth Observatory</h6>
+                                <p class="mb-1"><strong>Discovery of the SOFAR Channel (1944)</strong><br>
+                                Documentación histórica sobre el descubrimiento del canal SOFAR por Maurice Ewing.</p>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>7. Journal of the Acoustical Society of America</h6>
+                                <p class="mb-1"><strong>Sound propagation in the SOFAR channel: Theory and observations</strong><br>
+                                Artículos científicos sobre las ecuaciones de propagación del sonido.</p>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>8. WWF - World Wildlife Fund</h6>
+                                <p class="mb-1"><strong>Ocean Noise: The problem and its impact on marine life</strong><br>
+                                Informe sobre las amenazas de la contaminación acústica en el medio marino.</p>
+                                <a href="https://www.worldwildlife.org/threats/ocean-noise" target="_blank" class="small">https://www.worldwildlife.org/threats/ocean-noise</a>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>9. NASA Ocean Biology Processing Group</h6>
+                                <p class="mb-1"><strong>Ocean Acoustics and Marine Mammal Research</strong><br>
+                                Datos y estudios sobre bioacústica marina.</p>
+                            </div>
+                            
+                            <div class="bibliografia-item">
+                                <h6>10. Universidad de Vigo - Facultad de Ciencias del Mar</h6>
+                                <p class="mb-1"><strong>Material didáctico de Física 2</strong><br>
+                                Apuntes y recursos sobre física oceanográfica y propagación de ondas.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1050,6 +1204,24 @@
                                         <h4 class="mb-3">Proyecto de Física 2</h4>
                                         <p>Este sitio web es el resultado de nuestro trabajo de investigación para la asignatura <strong>Física 2</strong> de la carrera de <strong>Ciencias del Mar</strong> en la Universidad de Vigo.</p>
                                         
+                                        <!-- IMÁGENES DE LOS ESTUDIANTES EN EL PROYECTO -->
+                                        <div class="row text-center mt-4 mb-3">
+                                            <div class="col-md-6">
+                                                <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/Imagem%20do%20WhatsApp%20de%202025-04-26%20%C3%A0(s)%2001.58.25_4effbcfa.jpg?raw=true" 
+                                                     alt="Yasmin Battich Magalhaes" 
+                                                     class="project-student-img mb-2">
+                                                <p class="small mb-0"><strong>Yasmin Battich Magalhaes</strong></p>
+                                                <p class="small text-muted">Estudiante de Ciencias del Mar</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/WhatsApp%20Image%202025-12-13%20at%2014.05.33.jpeg?raw=true" 
+                                                     alt="Roque Chouciño Veiga" 
+                                                     class="project-student-img mb-2">
+                                                <p class="small mb-0"><strong>Roque Chouciño Veiga</strong></p>
+                                                <p class="small text-muted">Estudiante de Ciencias del Mar</p>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="row mt-4">
                                             <div class="col-md-6">
                                                 <h6><i class="bi bi-book me-2"></i>Objetivos del Proyecto:</h6>
@@ -1065,6 +1237,7 @@
                                                     <li>Revisión bibliográfica científica</li>
                                                     <li>Análisis de datos oceanográficos</li>
                                                     <li>Desarrollo de modelo de propagación</li>
+                                                    <li>Entrevista con expertos del sector</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1109,10 +1282,10 @@
                                 <div class="student-card">
                                     <div class="student-avatar-container">
                                         <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/WhatsApp%20Image%202025-12-13%20at%2014.05.33.jpeg?raw=true" 
-                                             alt="Roque Chouciño" 
+                                             alt="Roque Chouciño Veiga" 
                                              class="student-avatar-img">
                                     </div>
-                                    <h4 class="text-center">Roque Chouciño</h4>
+                                    <h4 class="text-center">Roque Chouciño Veiga</h4>
                                     <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
                                     
                                     <div class="mt-3">
@@ -1170,6 +1343,8 @@
                         <li><a href="#experimento" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Experimento Casero</a></li>
                         <li><a href="#entrevista" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Entrevista</a></li>
                         <li><a href="#mapa-conceptual" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Mapa Conceptual</a></li>
+                        <li><a href="#conclusion" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Conclusión</a></li>
+                        <li><a href="#bibliografia" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Bibliografía</a></li>
                         <li><a href="#quienes-somos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Quiénes Somos</a></li>
                     </ul>
                 </div>
@@ -1194,7 +1369,7 @@
                 <div class="col-md-6">
                     <p class="mb-0">
                         &copy; 2024 Proyecto Física 2 - Canal SOFAR<br>
-                        Yasmin Battich Magalhaes & Roque Chouciño
+                        Yasmin Battich Magalhaes & Roque Chouciño Veiga
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
