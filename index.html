@@ -22,7 +22,7 @@
             --color-ocean-light: #6dd5ed;
             --color-whale: #2c3e50;
             --color-uvigo: #0056a6;
-            --color-text-light: #ffffff; /* Nuevo: Color más claro para los títulos en el Hero */
+            --color-text-light: #ffffff;
         }
         
         /* ESTILOS GENERALES Y TIPOGRAFÍA */
@@ -31,7 +31,7 @@
             background: linear-gradient(180deg, #f0f8ff 0%, #e6f3ff 100%);
             color: #333;
             line-height: 1.7;
-            padding-top: 76px; /* Para compensar navbar fixed */
+            padding-top: 76px;
         }
         
         h1, h2, h3, h4, h5 {
@@ -108,8 +108,7 @@
         }
         
         .card-body {
-            /* AJUSTE DE MARGEN PARA EL TEXTO DENTRO DE LOS BLOQUES */
-            padding: 2rem !important; 
+            padding: 2rem !important;
         }
 
         /* INDICADOR DE PROFUNDIDAD */
@@ -168,15 +167,14 @@
             overflow: hidden;
             margin: 1rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 200px; /* Altura fija para el contenedor */
-            background-color: #000; /* Fondo negro para cuando la imagen no cubre todo */
+            height: 200px;
+            background-color: #000;
         }
         
-        /* CAMBIO: Usamos object-fit: contain para que la imagen se vea completa */
         .cetaceo-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* CAMBIADO DE COVER A CONTAIN */
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
         
@@ -256,7 +254,7 @@
             margin: 1rem 0;
         }
         
-        /* QUIÉNES SOMOS - AJUSTE DE ESPACIO */
+        /* QUIÉNES SOMOS */
         .team-section {
             background: linear-gradient(135deg, #ffffff 0%, #f8fcff 100%);
             border-radius: 20px;
@@ -268,7 +266,7 @@
         }
 
         .team-section h2 {
-            margin-top: 0; 
+            margin-top: 0;
             margin-bottom: 1rem;
         }
         
@@ -308,33 +306,43 @@
             box-shadow: 0 10px 25px rgba(0, 86, 166, 0.15);
         }
         
-        /* Modificación para incluir la imagen del experto */
+        /* NUEVOS ESTILOS PARA IMÁGENES DE ESTUDIANTES */
+        .student-avatar-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: var(--color-ocean-light);
+        }
+
+        .student-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* AJUSTAR el estilo existente de student-avatar */
+        .student-avatar {
+            display: none;
+        }
+        
+        /* Avatar del experto */
         .expert-avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            /* Usar la imagen adjunta */
-            background-image: url('WhatsApp Image 2025-12-09 at 18.20.09.jpeg'); 
+            background-image: url('WhatsApp Image 2025-12-09 at 18.20.09.jpeg');
             background-size: cover;
             background-position: center;
             background-color: var(--color-ocean-mid);
-            display: block; /* Asegura que la imagen ocupe el espacio */
+            display: block;
             margin: 0 auto 1rem;
             border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        /* Estilo para student-avatar con imagen de fondo */
-        .student-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: var(--color-ocean-light);
-            background-size: cover;
-            background-position: center;
-            display: block;
-            margin: 0 auto 1rem;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .course-badge {
@@ -358,7 +366,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 56.25%;
             margin-bottom: 1.5rem;
             border-radius: 10px;
             overflow: hidden;
@@ -379,7 +387,7 @@
             background: #fff8e1;
         }
         
-        /* ICONO DE BALLENA SIMPLE (SIN SÍMBOLO DE COMPARTIR) */
+        /* ICONO DE BALLENA SIMPLE */
         .whale-icon-simple {
             font-size: 3rem;
             color: var(--color-whale);
@@ -448,7 +456,8 @@
                     <li class="nav-item"><a class="nav-link" href="#curiosidades">Curiosidades</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experimento">Experimento</a></li>
                     <li class="nav-item"><a class="nav-link" href="#entrevista">Entrevista</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa Conceptual</a></li> <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa Conceptual</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
                 </ul>
             </div>
         </div>
@@ -911,7 +920,7 @@
                                     <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Especies que usan el canal SOFAR en nuestro territorio</h4>
                                     
                                     <blockquote class="blockquote">
-                                        <p class="mb-0">"Vamos a hablar sobre las principales especies que utilizan el canal sofar en nuestro territorio. Las poblaciones del Mediterráneo son escasas y entran a través del estrecho de Gibraltar, llegando en primavera para mantenerse durante el verano y migrar en otoño, hemos logrado biopsiar individuos que realizan este recorrido desde las costas catalanas hasta llegar a las gallegas, para luego dirigirse al norte. En cuanto a las del Atlántico, su comportamiento depende de la especie, ya que las ballenas jorobadas descienden desde zonas subárticas y se mantienen en las costas de la península para que crezcan sus crías antes de volver a migrar al norte, esta especie posee un canto de una frecuencia y una intensidad que les permite comunicarse a unas distancias relativamente cortas, mientras que el rorcual común emite unos cantos de mas baja frecuencia y de mayor intensidad lo cual hace que aproveche las fisicas del canal sofar siendo la especie que se tiene más registro del aprovechamiento del canal SOFAR, esterealiza una migración mucho más directa desde el Ártico a las costas españolas. Otro cetaceo que aprovecha el canal sofar para comunicarse es el cachalote, que detiene su migración en las islas Canarias antes de continuarla hacia el norte, lo cual conlleva una problemática latente debido al aumento del tráfico marítimo, que provoca que sean mutilados por los barcos a causa de sus hábitos de descansar en grupo cerca de la superficie en sentido vertical. Las especies que tenemos en nuestras costas han sido diezmadas durante décadas por su caza y muchos años de esfuerzos para su conservación están dando sus frutos ya que las poblaciones se están recuperando, dejandonos así un panorama esperanzador para poder seguir investigando a estos animales."</p>
+                                        <p class="mb-0">"Vamos a hablar sobre las principales especies que utilizan el canal SOFAR en nuestro territorio. Comenzamos por las del Atlántico, su comportamiento depende de la especie, ya que las ballenas jorobadas descienden desde zonas subárticas y se mantienen en las costas de la península para que crezcan sus crías antes de volver a migrar al norte, esta especie posee un canto de una frecuencia y una intensidad que les permite comunicarse a unas distancias relativamente cortas, mientras que el rorcual común emite unos cantos de mas baja frecuencia y de mayor intensidad lo cual hace que aproveche las fisicas del canal SOFAR siendo la especie que se tiene más registro del aprovechamiento del mismo, este realiza una migración mucho más directa desde el Ártico a las costas españolas. Las poblaciones del Mediterráneo son escasas y entran a través del estrecho de Gibraltar, llegando en primavera para mantenerse durante el verano y migrar en otoño, hemos logrado biopsiar individuos que realizan este recorrido desde las costas catalanas hasta llegar a las gallegas, para luego dirigirse al norte. Otro cetaceo que aprovecha el canal SOFAR para comunicarse es el cachalote, que detiene su migración en las islas Canarias antes de continuarla hacia el norte, lo cual conlleva una problemática latente debido al aumento del tráfico marítimo, que provoca que sean mutilados por los barcos a causa de sus hábitos de descansar en grupo cerca de la superficie en sentido vertical. Las especies que tenemos en nuestras costas han sido diezmadas durante décadas por su caza y muchos años de esfuerzos para su conservación están dando sus frutos ya que las poblaciones se están recuperando, dejandonos así un panorama esperanzador para poder seguir investigando a estos animales."</p>
                                         <footer class="blockquote-footer mt-2">Dr. Camilo Saavedra, <cite title="Cargo">Investigador en el Centro Oceanográfico de Vigo del Instituto Español de Oceanografía.</cite></footer>
                                     </blockquote>
                                 </div>
@@ -1029,7 +1038,7 @@
                         <i class="bi bi-building me-2"></i>Universidad de Vigo
                     </span>
                     <h2><i class="bi bi-people-fill me-2"></i>Quiénes Somos</h2>
-                    <p class="lead" style="margin-bottom: 0;">Un proyecto académico de la carrera de Ciencias del Mar.</p> 
+                    <p class="lead" style="margin-bottom: 0;">Un proyecto académico de la carrera de Ciencias del Mar.</p>
                 </div>
                 
                 <div class="row justify-content-center">
@@ -1073,7 +1082,10 @@
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="student-card">
-                                    <div class="student-avatar" style="background-image: url('https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/Imagem%20do%20WhatsApp%20de%202025-04-26%20%C3%A0(s)%2001.58.25_4effbcfa.jpg?raw=true');">
+                                    <div class="student-avatar-container">
+                                        <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/Imagem%20do%20WhatsApp%20de%202025-04-26%20%C3%A0(s)%2001.58.25_4effbcfa.jpg?raw=true" 
+                                             alt="Yasmin Battich Magalhaes" 
+                                             class="student-avatar-img">
                                     </div>
                                     <h4 class="text-center">Yasmin Battich Magalhaes</h4>
                                     <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
@@ -1095,7 +1107,10 @@
                             
                             <div class="col-md-6">
                                 <div class="student-card">
-                                    <div class="student-avatar" style="background-image: url('https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/WhatsApp%20Image%202025-12-13%20at%2014.05.33.jpeg?raw=true');">
+                                    <div class="student-avatar-container">
+                                        <img src="https://github.com/yasmin-bm/fisica2-portfolio.3/blob/main/WhatsApp%20Image%202025-12-13%20at%2014.05.33.jpeg?raw=true" 
+                                             alt="Roque Chouciño" 
+                                             class="student-avatar-img">
                                     </div>
                                     <h4 class="text-center">Roque Chouciño</h4>
                                     <p class="text-center text-muted">Estudiante de Ciencias del Mar</p>
@@ -1165,7 +1180,10 @@
                         <i class="bi bi-building me-2"></i><strong>Universidad de Vigo</strong><br>
                         <i class="bi bi-mortarboard me-2"></i>Facultad de Ciencias del Mar<br>
                         <i class="bi bi-geo-alt me-2"></i>Campus de Vigo, Galicia<br>
-                        <i class="bi bi-envelope me-2"></i>[correo académico]
+                        <i class="bi bi-envelope me-2"></i>
+                        <a href="mailto:yasmin.battich@alumnado.uvigo.es" class="text-white">yasmin.battich@alumnado.uvigo.es</a><br>
+                        <i class="bi bi-envelope me-2"></i>
+                        <a href="mailto:roque.choucino@alumnado.uvigo.es" class="text-white">roque.choucino@alumnado.uvigo.es</a>
                     </p>
                 </div>
             </div>
