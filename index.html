@@ -169,13 +169,14 @@
             margin: 1rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             height: 200px; /* Altura fija para el contenedor */
+            background-color: #000; /* Fondo negro para cuando la imagen no cubre todo */
         }
         
-        /* Usamos object-fit para que la imagen se adapte y cubra el contenedor */
+        /* CAMBIO: Usamos object-fit: contain para que la imagen se vea completa */
         .cetaceo-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* CAMBIADO DE COVER A CONTAIN */
             transition: transform 0.5s ease;
         }
         
