@@ -46,6 +46,19 @@
             box-shadow: 0 4px 12px rgba(26, 41, 128, 0.15);
         }
         
+        .navbar-nav .nav-link {
+            padding: 0.5rem 0.8rem !important;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-nav .nav-link {
+                padding: 0.5rem 0 !important;
+                font-size: 1rem;
+            }
+        }
+        
         /* SECCIÓN HERO */
         .hero-section {
             background: linear-gradient(135deg, var(--color-ocean-deep) 0%, #26d0ce 100%);
@@ -306,10 +319,10 @@
             box-shadow: 0 10px 25px rgba(0, 86, 166, 0.15);
         }
         
-        /* NUEVOS ESTILOS PARA IMÁGENES DE ESTUDIANTES */
+        /* NUEVOS ESTILOS PARA IMÁGENES DE ESTUDIANTES - AGREGADO TAMAÑO */
         .student-avatar-container {
-            width: 120px;
-            height: 120px;
+            width: 140px; /* Aumentado de 120px a 140px */
+            height: 140px; /* Aumentado de 120px a 140px */
             margin: 0 auto 1rem;
             border-radius: 50%;
             overflow: hidden;
@@ -345,10 +358,10 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* ESTILOS PARA LAS IMÁGENES EN EL PROYECTO DE FÍSICA 2 */
+        /* ESTILOS PARA LAS IMÁGENES EN EL PROYECTO DE FÍSICA 2 - AGREGADO TAMAÑO */
         .project-student-img {
-            width: 80px;
-            height: 80px;
+            width: 100px; /* Aumentado de 80px a 100px */
+            height: 100px; /* Aumentado de 80px a 100px */
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--color-ocean-mid);
@@ -482,6 +495,16 @@
                 padding: 1rem;
             }
             
+            .student-avatar-container {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .project-student-img {
+                width: 80px;
+                height: 80px;
+            }
+            
             body {
                 padding-top: 66px;
             }
@@ -507,10 +530,10 @@
                     <li class="nav-item"><a class="nav-link" href="#curiosidades">Curiosidades</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experimento">Experimento</a></li>
                     <li class="nav-item"><a class="nav-link" href="#entrevista">Entrevista</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa Conceptual</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mapa-conceptual">Mapa</a></li>
                     <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusión</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bibliografia">Bibliografía</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes</a></li>
                 </ul>
             </div>
         </div>
@@ -643,7 +666,7 @@
                             <div class="ocean-card h-100">
                                 <div class="card-body">
                                     <h5><i class="bi bi-thermometer me-2"></i>Efecto de la Temperatura</h5>
-                                    <p>La velocidad del sonido <strong>aumenta con la temperatura</strong>. En superficie, el agua es más cálida, pero...</p>
+                                    <p>La velocidad del sonido <strong>aumenta con la temperatura</strong>. En superficie, el agua es más cálida, pero en profundidad la temperatura disminuye rápidamente en la termoclina, lo que reduce la velocidad del sonido.</p>
                                     <div class="progress mb-2">
                                         <div class="progress-bar bg-info" style="width: 70%">Superficie: +velocidad</div>
                                     </div>
@@ -658,7 +681,7 @@
                             <div class="ocean-card h-100">
                                 <div class="card-body">
                                     <h5><i class="bi bi-droplet me-2"></i>Efecto de la Presión</h5>
-                                    <p>La velocidad del sonido <strong>aumenta con la presión</strong>. A mayor profundidad, mayor presión hidrostática.</p>
+                                    <p>La velocidad del sonido <strong>aumenta con la presión</strong>. A mayor profundidad, mayor presión hidrostática, lo que comprime el agua y aumenta su densidad y velocidad del sonido.</p>
                                     <div class="progress mb-2">
                                         <div class="progress-bar bg-secondary" style="width: 30%">Superficie: -presión</div>
                                     </div>
@@ -681,13 +704,13 @@
                             <ol class="mt-3">
                                 <li><strong>Superficie:</strong> Alta temperatura → Aumenta velocidad</li>
                                 <li><strong>Termoclina:</strong> Disminución rápida de temperatura → Disminuye velocidad</li>
-                                <li><strong>Canal SOFAR:</strong> Mínimo de velocidad (600-1200 m)</li>
+                                <li><strong>Canal SOFAR (600-1200 m):</strong> Mínimo de velocidad</li>
                                 <li><strong>Profundidad:</strong> Aumento de presión → Aumenta velocidad nuevamente</li>
                             </ol>
                             
                             <div class="alert alert-info mt-4">
                                 <i class="bi bi-exclamation-triangle me-2"></i>
-                                <strong>Punto crucial:</strong> La interacción entre temperatura (↓ velocidad) y presión (↑ velocidad) crea el mínimo del canal SOFAR.
+                                <strong>Punto crucial:</strong> La interacción entre temperatura (↓ velocidad) y presión (↑ velocidad) crea el mínimo del canal SOFAR a 600-1200 m de profundidad.
                             </div>
                         </div>
                     </div>
@@ -759,7 +782,7 @@
                                         <li><strong>Frecuencia:</strong> 10-40 Hz (infrasonido)</li>
                                         <li><strong>Intensidad:</strong> Hasta 188 dB</li>
                                         <li><strong>Duración:</strong> 10-30 segundos</li>
-                                        <li><strong>Alcance:</strong> 100-1000 km</li>
+                                        <li><strong>Alcance:</strong> 1,000-5,000 km</li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
@@ -785,7 +808,7 @@
                             
                             <div class="alert alert-warning mt-3">
                                 <i class="bi bi-megaphone me-2"></i>
-                                <strong>Dato sorprendente:</strong> Una ballena azul en el Atlántico Norte puede comunicarse con otra en el Atlántico Sur usando el canal SOFAR.
+                                <strong>Dato sorprendente:</strong> Una ballena azul en el Atlántico Norte puede comunicarse con otra en el Atlántico Sur usando el canal SOFAR, recorriendo distancias transoceánicas.
                             </div>
                         </div>
                     </div>
@@ -803,7 +826,7 @@
                                         <li>La ballena emite sonidos de baja frecuencia en el canal SOFAR</li>
                                         <li>Las ondas sonoras quedan atrapadas en la guía de ondas</li>
                                         <li>El sonido viaja horizontalmente con mínima pérdida</li>
-                                        <li>Otras ballenas a cientos de km pueden detectar la señal</li>
+                                        <li>Otras ballenas a miles de km pueden detectar la señal</li>
                                         <li>El sonido puede dar múltiples vueltas alrededor de la Tierra</li>
                                     </ol>
                                 </div>
@@ -938,10 +961,10 @@
                 <div class="col-lg-6 mb-4">
                     <div class="ocean-card h-100">
                         <div class="card-body">
-                            <h4 class="text-center mb-4"><i class="bi bi-film me-2"></i>Video del Experimento (Ejemplo)</h4>
+                            <h4 class="text-center mb-4"><i class="bi bi-film me-2"></i>Video del Experimento</h4>
                             
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_EXPERIMENTO" title="Simulación del Canal SOFAR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/bNMdU5nIleQ" title="Simulación del Canal SOFAR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             
                             <h5 class="mt-4"><i class="bi bi-chat-left-dots me-2"></i>Explicación Física:</h5>
@@ -970,10 +993,10 @@
                                     <p class="small text-muted">Investigador IEO - Oceanógrafo</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Especies que usan el canal SOFAR en nuestro territorio</h4>
+                                    <h4 class="mb-3"><i class="bi bi-quote me-2"></i>Especies que usan el canal SOFAR en nuestras aguas</h4>
                                     
                                     <blockquote class="blockquote">
-                                        <p class="mb-0">"Vamos a hablar sobre las principales especies que utilizan el canal SOFAR en nuestro territorio. Comenzamos por las del Atlántico, su comportamiento depende de la especie, ya que las ballenas jorobadas descienden desde zonas subárticas y se mantienen en las costas de la península para que crezcan sus crías antes de volver a migrar al norte, esta especie posee un canto de una frecuencia y una intensidad que les permite comunicarse a unas distancias relativamente cortas, mientras que el rorcual común emite unos cantos de mas baja frecuencia y de mayor intensidad lo cual hace que aproveche las fisicas del canal SOFAR siendo la especie que se tiene más registro del aprovechamiento del mismo, este realiza una migración mucho más directa desde el Ártico a las costas españolas. Las poblaciones del Mediterráneo son escasas y entran a través del estrecho de Gibraltar, llegando en primavera para mantenerse durante el verano y migrar en otoño, hemos logrado biopsiar individuos que realizan este recorrido desde las costas catalanas hasta llegar a las gallegas, para luego dirigirse al norte. Otro cetaceo que aprovecha el canal SOFAR para comunicarse es el cachalote, que detiene su migración en las islas Canarias antes de continuarla hacia el norte, lo cual conlleva una problemática latente debido al aumento del tráfico marítimo, que provoca que sean mutilados por los barcos a causa de sus hábitos de descansar en grupo cerca de la superficie en sentido vertical. Las especies que tenemos en nuestras costas han sido diezmadas durante décadas por su caza y muchos años de esfuerzos para su conservación están dando sus frutos ya que las poblaciones se están recuperando, dejandonos así un panorama esperanzador para poder seguir investigando a estos animales."</p>
+                                        <p class="mb-0">"Vamos a hablar sobre las principales especies que utilizan el canal SOFAR en nuestras aguas. Comenzamos por las del Atlántico, su comportamiento depende de la especie, ya que las ballenas jorobadas descienden desde zonas subárticas y se mantienen en las costas de la península para que crezcan sus crías antes de volver a migrar al norte, esta especie posee un canto de una frecuencia y una intensidad que les permite comunicarse a unas distancias relativamente cortas, mientras que el rorcual común emite unos cantos de mas baja frecuencia y de mayor intensidad lo cual hace que aproveche las fisicas del canal SOFAR siendo la especie que se tiene más registro del aprovechamiento del mismo, este realiza una migración mucho más directa desde el Ártico a las costas españolas. Las poblaciones del Mediterráneo son escasas y entran a través del estrecho de Gibraltar, llegando en primavera para mantenerse durante el verano y migrar en otoño, hemos logrado biopsiar individuos que realizan este recorrido desde las costas catalanas hasta llegar a las gallegas, para luego dirigirse al norte. Otro cetaceo que aprovecha el canal SOFAR para comunicarse es el cachalote, que detiene su migración en las islas Canarias antes de continuarla hacia el norte, lo cual conlleva una problemática latente debido al aumento del tráfico marítimo, que provoca que sean mutilados por los barcos a causa de sus hábitos de descansar en grupo cerca de la superficie en sentido vertical. Las especies que tenemos en nuestras costas han sido diezmadas durante décadas por su caza y muchos años de esfuerzos para su conservación están dando sus frutos ya que las poblaciones se están recuperando, dejandonos así un panorama esperanzador para poder seguir investigando a estos animales."</p>
                                         <footer class="blockquote-footer mt-2">Dr. Camilo Saavedra, <cite title="Cargo">Investigador en el Centro Oceanográfico de Vigo del Instituto Español de Oceanografía.</cite></footer>
                                     </blockquote>
                                 </div>
@@ -1340,7 +1363,7 @@
                         <li><a href="#inicio" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Inicio</a></li>
                         <li><a href="#que-es" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>¿Qué es el Canal SOFAR?</a></li>
                         <li><a href="#cetaceos" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Comunicación de Cetáceos</a></li>
-                        <li><a href="#experimento" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Experimento Casero</a></li>
+                        <li><a href="#experimento" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Experimento</a></li>
                         <li><a href="#entrevista" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Entrevista</a></li>
                         <li><a href="#mapa-conceptual" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Mapa Conceptual</a></li>
                         <li><a href="#conclusion" class="text-light text-decoration-none"><i class="bi bi-chevron-right me-1"></i>Conclusión</a></li>
